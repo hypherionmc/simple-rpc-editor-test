@@ -6,6 +6,10 @@ on:
 
 jobs:
   publish-tauri:
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      TAURI_PRIVATE_KEY: '${{ secrets.TAURI_SIGN_KEY }}'
+      TAURI_KEY_PASSWORD: '${{ secrets.TAURI_SIGN_PASSWORD }}'
     strategy:
       fail-fast: false
       matrix:
@@ -32,13 +36,7 @@ jobs:
       - name: bundle app
         run:
           yarn bundle
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_PRIVATE_KEY: '${{ secrets.TAURI_SIGN_KEY }}'
-          TAURI_KEY_PASSWORD: '${{ secrets.TAURI_SIGN_PASSWORD }}'
       - uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tagName: app-v__VERSION__ # the action automatically replaces \_\_VERSION\_\_ with the app version
           releaseName: "App v__VERSION__"
