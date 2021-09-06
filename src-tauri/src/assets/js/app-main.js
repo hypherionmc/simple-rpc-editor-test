@@ -34,6 +34,8 @@ var app = new Vue({
         $('.toast').toast('hide');
         appRef.setWindowTitle();
 
+        console.log(await tauri.updater.checkUpdate());
+
         appRef.aboutInfo = {
             os: (await tauri.os.type()).replace("_NT", ""),
             nlversion: await tauri.app.getTauriVersion(),
