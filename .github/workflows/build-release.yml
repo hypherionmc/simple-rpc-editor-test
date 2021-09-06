@@ -31,7 +31,6 @@ jobs:
         run: yarn
       - name: bundle app
         run:
-          yarn install
           yarn bundle
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
