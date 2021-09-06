@@ -1,0 +1,19 @@
+{
+  "name": "rpc-editor",
+  "version": "2.0.0-beta",
+  "description": "Simple RPC Code editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tauri": "tauri",
+    "dev": "tauri dev",
+    "bundle": "tauri build"
+  },
+  "author": "HypherionSA",
+  "license": "MIT",
+  "dependencies": {
+    "@tauri-apps/cli": "^1.0.0-beta.10"
+  },
+  "devDependencies": {
+  }
+}
